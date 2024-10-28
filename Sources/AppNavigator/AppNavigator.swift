@@ -134,4 +134,15 @@ public class AppNavigator {
         
         return open(with: deepLink, context: context)
     }
+    
+    @discardableResult
+    public func openExternalUrl(with url: URL?) -> Bool {
+        guard let url = url else {
+            return false
+        }
+        
+        UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        
+        return true
+    }
 }
