@@ -1,0 +1,15 @@
+{
+  "originHash" : "87e1effa745ff926ddaa67beaed60a1754bcad807ade2b884b87121c9ee9f77e",
+  "pins" : [
+    {
+      "identity" : "urlnavigator",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/devxoul/URLNavigator.git",
+      "state" : {
+        "revision" : "b881f23dc3b381986ed6cf76da8e426ce5c8a7ee",
+        "version" : "2.5.1"
+      }
+    }
+  ],
+  "version" : 3
+}
