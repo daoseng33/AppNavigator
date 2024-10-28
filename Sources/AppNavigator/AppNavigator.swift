@@ -16,7 +16,7 @@ public struct AppNavigator {
     private let scheme: String
     
     // MARK: - Setup
-    init(scheme: String) {
+    public init(scheme: String) {
         self.scheme = scheme
     }
     
