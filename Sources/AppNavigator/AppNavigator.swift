@@ -9,22 +9,21 @@ public enum URLCategory: String {
     case behavior
 }
 
-public struct AppNavigator {
+public class AppNavigator {
     // MARK: - Properties
-    
+    static let shared = AppNavigator()
     private let navigator = Navigator()
-    private let scheme: String
+    private var scheme: String?
     
     // MARK: - Setup
-    public init(scheme: String) {
-        self.scheme = scheme
-    }
+    private init() { }
     
-    public func setup(pageConfigs: [NavigatorConfig] = [],
+    public func setup(scheme: String,
+                      pageConfigs: [NavigatorConfig] = [],
                       componentConfigs: [NavigatorConfig] = [],
                       apiConfigs: [APINavigatorConfig] = [],
                       behaviorConfigs: [NavigatorConfig] = []) {
-        
+        self.scheme = scheme
         let path = "\(scheme)://<category>/<name>"
         
         let pageConfigDict: [String: URLHandlerFactory] = {
@@ -123,6 +122,7 @@ public struct AppNavigator {
     
     @discardableResult
     public func open(with category: URLCategory, name: String, queryItems: [URLQueryItem]? = nil, context: Any? = nil) -> Bool {
+        guard let scheme = scheme else { return false }
         var deepLink = "\(scheme)://\(category.rawValue)/\(name)"
         
         if let queryItems = queryItems {
