@@ -11,7 +11,7 @@ public enum URLCategory: String {
 
 public class AppNavigator {
     // MARK: - Properties
-    static let shared = AppNavigator()
+    public static let shared = AppNavigator()
     private let navigator = Navigator()
     private var scheme: String?
     
